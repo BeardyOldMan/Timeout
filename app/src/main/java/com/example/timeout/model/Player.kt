@@ -3,18 +3,15 @@ package com.example.timeout.model
 
 class Player {
     private val hands = mutableListOf<Hand>()
-    fun addHand(hand: Hand) {
-        hands.add(hand)
+    val allHands: List<Hand>
+        get() = hands
+    fun addHand(index: Int, hand: Hand) {
+        hands.add(index, hand)
     }
-    fun removeHand(hand: Hand) {
-        hands.remove(hand)
+    fun removeHand(index: Int) {
+        hands.removeAt(index)
     }
     fun getHand(index: Int): Hand {
         return hands[index]
-    }
-    val handCount: Int
-        get() = hands.size
-    fun clearHands() {
-        hands.clear()
     }
 }
